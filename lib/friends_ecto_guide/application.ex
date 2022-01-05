@@ -7,8 +7,9 @@ defmodule FriendsEctoGuide.Application do
 
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: FriendsEctoGuide.Worker.start_link(arg)
-      # {FriendsEctoGuide.Worker, arg}
+      # Start the Ecto process which receives and executes our application's queries. Without it,
+      # we wouldn't be able to query the database at all!
+      Friends.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
